@@ -1,9 +1,12 @@
 import { PrismaClient } from "@prisma/client";
 import { ILoginRepository } from "../../../repositories/ILoginRepository";
 import jwt from "jsonwebtoken";
+import { PasswordProvider } from "../passwordProvider/passwordProvider";
 
 export class LoginRepository implements ILoginRepository {
-    constructor(private prisma = new PrismaClient()) {}
+    constructor(
+        private passwordProvider: PasswordProvider,
+        private prisma = new PrismaClient()) {}
 
     async login(email: string, password: string): Promise<string> {
         const user = await this.prisma.users.findUnique({
@@ -11,11 +14,12 @@ export class LoginRepository implements ILoginRepository {
                 email
             }
         })
+        
         if (!user) {
             throw new Error("User not found")
         }
 
-        if (user.password !== password) {
+        if (!await this.passwordProvider.compare(password, user.password)) {
             throw new Error("Invalid password")
         }   
 

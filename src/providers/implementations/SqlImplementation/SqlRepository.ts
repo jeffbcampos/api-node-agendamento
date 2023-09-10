@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import { User } from "../../entities/user/user";
-import { IUserRepository } from "../../repositories/IUserRepository";
+import { User } from "../../../entities/user/user";
+import { IUserRepository } from "../../../repositories/IUserRepository";
 
 ;
 

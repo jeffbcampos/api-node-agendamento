@@ -2,7 +2,7 @@ import { app } from "./app";
 import express from "express";
 import { createUserRouter } from "./routes/createUser";
 import { OAuthRouter } from "./routes/authUser";
-import { authMiddleware } from "./routes/authMiddleware";
+import { authMiddleware } from "./useCase/authUsecase/authMiddleware";
 
 app.use(express.json());
 

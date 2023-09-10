@@ -1,7 +1,7 @@
 
 import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
-import { secret } from './authUser';
+import { secret } from '../../routes/authUser';
 import { Request, Response, NextFunction } from 'express';
 
 const prisma = new PrismaClient();
@@ -19,6 +19,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
 
         jwt.verify(token, secret!);
         console.log("Token verified")
+        console.log(jwt.decode(token))
         next();
         
     } catch (error) {

@@ -1,4 +1,4 @@
-import { SqlRepository } from "../../../implementations/SqlImplementation/SqlRepository";
+import { SqlRepository } from "../../../providers/implementations/SqlImplementation/SqlRepository";
 import { CreateUserController } from "./controller";
 import { CreateUserUseCase } from "./userUseCase";
 

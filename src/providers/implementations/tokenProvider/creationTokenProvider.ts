@@ -1,5 +1,4 @@
-import { User } from "../../../entities/user/user";
-import { secret } from "../../../routes/authUser";
+import { secret } from "../../../config/vars";
 import { ITokenImplementations } from "../ITokenImplementations";
 import jwt from "jsonwebtoken";
 

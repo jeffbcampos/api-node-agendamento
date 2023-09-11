@@ -18,3 +18,11 @@ model users {
   password String
 }
 
+model Schedules {
+  id      String   @id @default(uuid())
+  client  String
+  date    DateTime
+  service String[]
+  hour    DateTime
+}
+

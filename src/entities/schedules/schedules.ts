@@ -1,11 +1,11 @@
 export class Schedules {
-    public id?: number
+    public id?: string
     public client!: string
-    public date!: string
+    public date!: Date
     public service!: string[]
-    public hour!: string
+    public hour!: Date
 
-    constructor(props: Schedules, id?: number) {
+    constructor(props: Schedules, id?: string) {
         Object.assign(this, props)
     }
 }

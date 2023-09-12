@@ -18,7 +18,7 @@ model users {
   password String
 }
 
-model Schedules {
+model schedules {
   id      String   @id @default(uuid())
   client  String
   date    DateTime

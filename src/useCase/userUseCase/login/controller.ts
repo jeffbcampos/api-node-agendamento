@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { LoginUseCase } from "./loginUseCase";
-import { CreationToken } from "../../../providers/implementations/tokenProvider/creationTokenProvider";
+
 
 export class LoginUserController {
     constructor(

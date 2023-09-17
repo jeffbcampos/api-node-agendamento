@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 import { Schedules } from "../../../entities/schedules/schedules";
 import { IScheduleRepository } from "../../../repositories/IScheduleRepository";
-import { format } from 'date-fns'
 
 
 const prisma = new PrismaClient();
@@ -39,8 +38,13 @@ export class ScheduleRepository implements IScheduleRepository {
 
     }
 
-    async findAllSchedules(): Promise<Schedules[]> {
-        return await prisma.schedules.findMany();
+    async findAllSchedules(id: string): Promise<Schedules[]> {
+        const schedules = await this.prisma.schedules.findMany({
+            where: {
+                client: id
+            }
+        })        
+        return schedules
     }
 
 

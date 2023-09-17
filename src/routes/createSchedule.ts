@@ -1,4 +1,4 @@
-import { authMiddleware } from '../useCase/authUseCase/authMiddleware';
+import { authMiddleware } from '../useCase/authUsecase/authMiddleware';
 import { scheduleController } from './../useCase/scheduleUseCase/create/index';
 import { Router } from "express";
 

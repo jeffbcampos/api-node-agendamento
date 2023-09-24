@@ -41,7 +41,7 @@ export class ValidationUseRepository implements IValidationUserRepository {
         })
 
         await this.mailProvider.sendMail({
-            from: process.env.EMAIL,
+            from: `no-reply <${process.env.EMAIL}>`,
             to: email,
             subject: "Confirme seu cadastro",
             html: `Olá ${name}, para confirmar o seu cadastro clique no link abaixo:

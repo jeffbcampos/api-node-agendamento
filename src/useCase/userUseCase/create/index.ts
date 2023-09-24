@@ -3,8 +3,7 @@ import { PasswordProvider } from "../../../providers/implementations/passwordPro
 import { CreateUserController } from "./controller";
 import { CreateUserUseCase } from "./userUseCase";
 
-const passwordProvider = new PasswordProvider();
-const sqlRepository = new SqlRepository(passwordProvider);
+const sqlRepository = new SqlRepository();
 const createUserUseCase = new CreateUserUseCase(sqlRepository);
 const createUserController = new CreateUserController(createUserUseCase);
 

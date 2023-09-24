@@ -6,8 +6,7 @@ import { PasswordProvider } from '../passwordProvider/passwordProvider';
 ;
 
 export class SqlRepository implements IUserRepository {
-    constructor(        
-        private passwordProvider: PasswordProvider,
+    constructor(       
         private prisma = new PrismaClient()
     ) {}
 
@@ -21,15 +20,13 @@ export class SqlRepository implements IUserRepository {
         })
         if(userExisting) {
             throw new Error("User already exists")
-        }
-        
-        const hashedPassword = await this.passwordProvider.hash(password);
+        }       
 
         await this.prisma.users.create({
             data: {
                 name,
                 email,
-                password: hashedPassword
+                password
             }
         })
     }

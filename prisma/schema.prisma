@@ -26,3 +26,10 @@ model schedules {
   hour    DateTime
 }
 
+model validation_user {  
+  name String
+  email String
+  password String
+  token String @unique
+}
+

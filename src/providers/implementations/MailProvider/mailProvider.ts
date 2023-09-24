@@ -6,7 +6,7 @@ export class MailProvider implements IMailServerProvider {
 
     constructor() {
         this.transporter = nodemailer.createTransport({
-            host: "smtp-mail.outlook.com",
+            host: process.env.HOST,
             port: 587,
             secure: false,
             auth: {
